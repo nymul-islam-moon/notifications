@@ -29,19 +29,16 @@
 
 <div class="container search-section">
     <div class="row justify-content-center px-2">
-        <div class="col-md-6 mb-2 mb-md-0">
+        <div class="col-md-8">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
         </div>
-        <div class="col-md-4 mb-2 mb-md-0">
+        <div class="col-md-4">
             <select class="form-control">
                 <option selected>Choose filter...</option>
                 <option>Filter 1</option>
                 <option>Filter 2</option>
                 <option>Filter 3</option>
             </select>
-        </div>
-        <div class="col-md-2">
-            <button class="btn btn-primary w-100">Search</button>
         </div>
     </div>
 </div>
@@ -68,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <!-- Add more posts here -->
+
     </div>
 </div>
 

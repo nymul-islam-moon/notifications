@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -50,12 +51,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'first_name'    => ['required', 'string', 'max:255'],
+            'last_name'     => ['required', 'string', 'max:255'],
+            'phone'         => ['required', 'string', 'max:255'],
+            'student_id'    => ['required', 'string', 'max:255'],
+            'address'       => ['required', 'string', 'max:255'],
+            'email'         => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'      => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -68,12 +70,25 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'phone' => $data['phone'],
-            'address' => $data['address'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'first_name'    => $data['first_name'],
+            'last_name'     => $data['last_name'],
+            'phone'         => $data['phone'],
+            'student_id'    => $data['student_id'],
+            'address'       => $data['address'],
+            'email'         => $data['email'],
+            'status'        => false,
+            'password'      => Hash::make($data['password']),
         ]);
+    }
+
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $user = $this->create($request->all());
+
+        // Redirect to login page with a success message
+        return redirect('/login')->with('success', 'Registration successful. Please contact to authority for activating your account');
     }
 }
