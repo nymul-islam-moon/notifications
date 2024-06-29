@@ -12,7 +12,7 @@ class Faculty extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
 
-    protected $guard = 'faculties';
+    protected $guard = 'faculty';
 
     /**
      * The attributes that are mass assignable.

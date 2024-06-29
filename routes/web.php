@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::prefix('/')->group( function () {
@@ -33,14 +30,14 @@ Route::prefix('/')->group( function () {
 });
 
 
-// Route::prefix('faculty')->group( function (){
+Route::prefix('faculty')->group( function (){
 
-//     Route::controller(FacultyController::class)->group(function () {
-//         Route::get('/login', 'index')->name('faculty_login');
-//         Route::post('/login/owner', 'login')->name('faculty.login');
-//         Route::post('/register/create', 'register_store')->name('faculty.register.create');
-//         Route::get('/logout', 'logout')->name('faculty.logout');
-//         Route::get('/register', 'register')->name('faculty.register');
-//         Route::get('/dashboard', 'dashboard')->name('faculty.dashboard')->middleware('faculty');
-//     });
-// });
+    Route::controller(FacultyController::class)->group(function () {
+        Route::get('/login', 'index')->name('faculty_login');
+        Route::post('/login/owner', 'login')->name('faculty.login');
+        Route::post('/register/create', 'register_store')->name('faculty.register.create');
+        Route::get('/logout', 'logout')->name('faculty.logout');
+        Route::get('/register', 'register')->name('faculty.register');
+        Route::get('/dashboard', 'dashboard')->name('faculty.dashboard')->middleware('faculty');
+    });
+});
