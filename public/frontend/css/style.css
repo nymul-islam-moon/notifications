@@ -25,6 +25,12 @@ body {
 .navbar-custom .dropdown .dropdown-menu a {
     color: #0069d9;
 }
+
+.navbar-custom .dropdown img {
+    border: 2px solid white;
+}
+
+
 .search-section {
     padding: 20px 0;
     background-color: white;
