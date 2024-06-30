@@ -26,7 +26,6 @@ Route::prefix('/')->group( function () {
         Route::get('/', 'index')->name('frontend.profile.index');
         Route::put('/update/{id}', 'update')->name('frontend.profile.update');
     });
-
 });
 
 
