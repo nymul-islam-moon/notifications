@@ -31,4 +31,9 @@ class FacultyController extends Controller
         return redirect()->route('faculty_login')->with('success', 'Faculty Logout Successfully');
     }
 
+    public function register() {
+
+        return view('admin.auth.register');
+    }
+
 }

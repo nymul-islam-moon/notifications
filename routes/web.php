@@ -3,6 +3,8 @@
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,5 +40,14 @@ Route::prefix('faculty')->group( function (){
         Route::get('/logout', 'logout')->name('faculty.logout');
         Route::get('/register', 'register')->name('faculty.register');
         Route::get('/dashboard', 'dashboard')->name('faculty.dashboard')->middleware('faculty');
+    });
+
+
+    Route::controller(TagController::class)->prefix('/tags')->group( function() {
+        Route::get('/', 'index')->name('faculty.tag.index');
+    });
+
+    Route::controller(StudentController::class)->prefix('/students')->group( function() {
+        Route::get('/', 'index')->name('faculty.student.index');
     });
 });
