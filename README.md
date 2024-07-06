@@ -1,9 +1,10 @@
-# Notifications Application
+# University Notifications Application
 
-A comprehensive notifications application built with Laravel 9. This application allows users to send and manage various types of notifications, including email, SMS, and in-app notifications.
+A comprehensive university notifications application built with Laravel 9. This application allows faculty members of a university to send and manage various types of notifications, including email, SMS, and in-app notifications, to keep students updated with the latest information.
 
 ## Table of Contents
 
+- [Description](#description)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
@@ -11,9 +12,13 @@ A comprehensive notifications application built with Laravel 9. This application
 - [Contributing](#contributing)
 - [License](#license)
 
+## Description
+
+The University Notifications Application is designed to facilitate effective communication between faculty members and students. Faculty members can create notifications that will be sent to students to keep them updated with the latest information, such as announcements, schedule changes, deadlines, and other important updates.
+
 ## Installation
 
-Follow these steps to set up the Notifications application on your local machine.
+Follow these steps to set up the University Notifications Application on your local machine.
 
 ### Prerequisites
 
