@@ -1,4 +1,4 @@
-# Notifications
+# Notifications Application
 
 A comprehensive notifications application built with Laravel 9. This application allows users to send and manage various types of notifications, including email, SMS, and in-app notifications.
 
@@ -30,16 +30,17 @@ Follow these steps to set up the Notifications application on your local machine
     cd notifications
     ```
 
-2. Install the dependencies:
-
-    ```sh
-    composer install
-    ```
-
-3. Copy the `.env.example` file to `.env`:
+2. Copy the `.env.example` file to `.env`:
 
     ```sh
     cp .env.example .env
+    ```
+
+3. Install the dependencies:
+
+    ```sh
+    composer install
+    composer update
     ```
 
 4. Generate the application key:
@@ -48,7 +49,7 @@ Follow these steps to set up the Notifications application on your local machine
     php artisan key:generate
     ```
 
-5. Set up the database in the `.env` file:
+5. Open the `.env` file and update the database details:
 
     ```env
     DB_CONNECTION=mysql
@@ -59,19 +60,13 @@ Follow these steps to set up the Notifications application on your local machine
     DB_PASSWORD=your_database_password
     ```
 
-6. Run the migrations:
+6. Run the migrations and seed the database:
 
     ```sh
-    php artisan migrate
+    php artisan migrate:fresh --seed
     ```
 
-7. (Optional) Seed the database:
-
-    ```sh
-    php artisan db:seed
-    ```
-
-8. Serve the application:
+7. Serve the application:
 
     ```sh
     php artisan serve
